@@ -1,0 +1,29 @@
+[project]
+name = "bioelec-pinn"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "jackbmontgomery", email = "jack.b.montgomery0@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "diffrax>=0.7.2",
+    "equinox>=0.13.8",
+    "jax>=0.12.0.1",
+    "optimistix>=0.1.0",
+    "polars>=2.1.0",
+]
+
+[project.scripts]
+bioelec-pinn = "bioelec_pinn:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "marimo>=0.25.2",
+    "matplotlib>=3.11.2",
+]
