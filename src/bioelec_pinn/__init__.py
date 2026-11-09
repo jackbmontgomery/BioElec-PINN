@@ -1,27 +1,18 @@
 from bioelec_pinn.model import (
-    CYCLE_ALPHA_0,
-    CYCLE_DURATION,
-    CYCLE_PARAMETERS,
-    CYCLE_S_FINAL,
-    CYCLE_S_IN,
     FixedParameters,
-    Model,
+    ODEModel,
     Parameters,
     State,
-    cycle_setup,
     solve,
 )
+import jax
+
+jax.config.update("jax_enable_x64", True)
 
 __all__ = [
-    "CYCLE_ALPHA_0",
-    "CYCLE_DURATION",
-    "CYCLE_PARAMETERS",
-    "CYCLE_S_FINAL",
-    "CYCLE_S_IN",
     "FixedParameters",
-    "Model",
+    "ODEModel",
     "Parameters",
     "State",
-    "cycle_setup",
     "solve",
 ]

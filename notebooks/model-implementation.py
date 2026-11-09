@@ -1,19 +1,12 @@
-"""Forward integration of the Pardo Gomez et al. (2026) mechanistic model.
-
-Reproduces the paper's "classical solver" check: integrate Eqs. (1)-(5) with
-the algebraic current constraint Eq. (11), using the Table 5 cycle-specific
-parameters, and compare against the digitised Fig. 4 / Fig. 5 observations.
-"""
-
 import jax
-
-jax.config.update("jax_enable_x64", True)
 
 import jax.numpy as jnp
 import numpy as np
 import polars as pl
 
 from bioelec_pinn import CYCLE_DURATION, cycle_setup, solve
+
+jax.config.update("jax_enable_x64", True)
 
 DATA = "data"
 # Table 6, classical-solver column, for reference.

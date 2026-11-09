@@ -1,6 +1,5 @@
 import jax
 
-jax.config.update("jax_enable_x64", True)
 
 import jax.numpy as jnp
 import matplotlib.pyplot as plt
@@ -8,6 +7,9 @@ import numpy as np
 import polars as pl
 
 from bioelec_pinn import CYCLE_DURATION, cycle_setup, solve
+
+jax.config.update("jax_enable_x64", True)
+
 
 voltage = pl.read_csv("./data/pardogomez2026_fig4_voltage_experimental.csv")
 cod = pl.read_csv("./data/pardogomez2026_fig5_cod_experimental.csv")
@@ -41,7 +43,6 @@ for i, c in enumerate((1, 2, 3, 4)):
     d = cod.filter(pl.col("cycle") == c)
     ax.plot(d["time_d"], d["cod_mg_per_L"], "o", label="experimental COD")
     ax.plot(ts, ys_1.S_bulk * 1000, label=r"$S_{bulk}$")
-    ax.plot(ts, ys_1.S_bio * 1000, "--", label=r"$S_{bio}$")
     ax.set_xlabel("time [d]")
     ax.set_ylabel("COD [mg/L]")
     ax.legend(fontsize=8)
